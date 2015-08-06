@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>Sporting Solutions</authors>
+    <owners>Sporting Solutions</owners>
+    <licenseUrl>http://www.sportingsolutions.com</licenseUrl>
+    <projectUrl>http://www.sportingsolutions.com</projectUrl>
+    <iconUrl>https://dl.dropbox.com/u/30149716/SS/nugetPackageLogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2015 Sporting Solutions</copyright>
+
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Model"
+                    version="1.0.4.1" />
+        <dependency id="RestSharp"
+                    version="105.0.1" />
+      </group>
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="bin\Release\FixtureServiceRestSharp.dll"
+          target="lib\net45\FixtureServiceRestSharp.dll" />
+    <file src="bin\Release\FixtureServiceRestSharp.pdb"
+          target="lib\net45\FixtureServiceRestSharp.pdb" />
+
+    <file src="bin\Release\FixtureServiceRestSharpAsync.dll"
+          target="lib\net45\FixtureServiceRestSharpAsync.dll" />
+    <file src="bin\Release\FixtureServiceRestSharpAsync.pdb"
+          target="lib\net45\FixtureServiceRestSharpAsync.pdb" />
+  </files>
+</package>

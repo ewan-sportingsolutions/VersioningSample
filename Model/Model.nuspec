@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>Sporting Solutions</authors>
+    <owners>Sporting Solutions</owners>
+    <licenseUrl>http://www.sportingsolutions.com</licenseUrl>
+    <projectUrl>http://www.sportingsolutions.com</projectUrl>
+    <iconUrl>https://dl.dropbox.com/u/30149716/SS/nugetPackageLogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2015 Sporting Solutions</copyright>
+    <!--
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="SS.Pricing.Domain"
+                    version="2.2.104.0" />
+        <dependency id="SS.Pricing.InPlayAutomation.Domain.Model"
+                    version="3.1.4.0" />
+        <dependency id="SS.Architecture.CQRSEventSourcing"
+                    version="2.1.327.0" />
+        <dependency id="RestSharp"
+                    version="105.0.1" />
+        <dependency id="Newtonsoft.Json"
+                    version="6.0.8" />
+      </group>
+    </dependencies>
+    -->
+  </metadata>
+  <files>
+    <file src="bin\Release\Model.dll"
+          target="lib\net45\Model.dll" />
+    <file src="bin\Release\Model.pdb"
+          target="lib\net45\Model.pdb" />
+  </files>
+</package>
