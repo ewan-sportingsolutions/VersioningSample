@@ -43,6 +43,39 @@ namespace FixtureServiceTests
                 fixtureService);
         }
 
+
+        /// <summary>
+        /// integration test
+        /// runs against the WebHost specifed in AppSettings
+        /// todo:: use dependency injection (from file config) rather than these test methods
+        /// </summary>
+        [TestMethod]
+        public void RestServiceByDateTest()
+        {
+            Uri serviceEndPoint = new Uri(ConfigurationManager.AppSettings["serviceEndPoint"]);
+            string authKey = ConfigurationManager.AppSettings["authKey"];
+
+            IFixtureService fixtureService = new FixtureService_RestSharp(
+                serviceEndPoint,
+                authKey);
+
+            ServiceTestByDate(
+                fixtureService);
+        }
+
+        /// <summary>
+        /// unit test, runs against the business logic
+        /// todo:: use dependency injection (from file config) rather than these test methods
+        /// </summary>
+        [TestMethod]
+        public void BusinessLogicGetByDateTest()
+        {
+            IFixtureService fixtureService = new FixtureService.FixtureService();
+
+            ServiceTestByDate(
+                fixtureService);
+        }
+
         /// <summary>
         /// the actual test
         /// </summary>
@@ -53,28 +86,32 @@ namespace FixtureServiceTests
             f.Id = "Test_" + Guid.NewGuid()
                 .ToString();
             f.Description = "test fixture";
+            f.Date = DateTime.Now;
 
-            this.AddFixtureTest(
-                fixtureService,
-                f);
+            fixtureService.AddFixture(f);
 
-            var result = this.GetFixtureTest(
-                fixtureService,
-                f.Id);
+            var result = fixtureService.GetFixture(f.Id);
 
             Assert.AreEqual(f.Id, result.Id);
+            Assert.AreEqual(f.Date, result.Date);
         }
 
-        public void AddFixtureTest(IFixtureService fixtureService, Fixture f)
+        public void ServiceTestByDate(IFixtureService fixtureService)
         {
-            fixtureService.AddFixture(
-                f);
-        }
+            Fixture f = new Fixture();
+            f.Id = "Test_" + Guid.NewGuid()
+                .ToString();
+            f.Description = "test fixture";
+            f.Date = DateTime.Now;
 
-        public Fixture GetFixtureTest(IFixtureService fixtureService, string id)
-        {
-            return fixtureService.GetFixture(
-                id);
+
+            fixtureService.AddFixture(f);
+            DateTime startDate = f.Date.AddDays(-1);
+            DateTime endDate = f.Date.AddDays(+1);
+            var result = fixtureService.GetFixtureByDate(startDate,endDate);
+
+            Assert.AreEqual(f.Id, result[0].Id);
+            Assert.AreEqual(f.Date, result[0].Date);
         }
     }
 }

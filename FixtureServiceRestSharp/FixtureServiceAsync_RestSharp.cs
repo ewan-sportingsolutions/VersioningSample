@@ -209,5 +209,22 @@ namespace FixtureServiceRestSharp
 
             return result.Data;
         }
+
+
+        public async Task<List<Model.Fixture>> GetFixtureByDateAsync(DateTime startDate, DateTime endDate)
+        {
+            Uri resource = new Uri("api/FixtureService/TODOFILLTHISIN!", UriKind.Relative);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("startDate", startDate);
+            parameters.Add("endDate", endDate);
+
+            var result = await this.GetResponseAsync<List<Model.Fixture>>(
+                resource,
+                Method.GET,
+                null,
+                parameters);
+
+            return result.Data;
+        }
     }
 }
