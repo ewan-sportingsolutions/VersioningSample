@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FixtureServiceRestSharp\FixtureServiceRestSharp.csproj">
