@@ -21,7 +21,7 @@ namespace Model.Interfaces
         /// <summary>
         /// get fixtures between the start and end date
         /// </summary>
-        List<Fixture> GetFixtureByDateAsync(
+        List<Fixture> GetFixtureByDate(
             DateTime startDate,
             DateTime endDate);
     }
