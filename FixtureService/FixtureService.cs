@@ -27,5 +27,12 @@ namespace FixtureService
             this.fixtures.Add(fixture);
             return fixture;
         }
+
+        public List<Fixture> GetFixtureByDate(DateTime startDate, DateTime endDate)
+        {
+            return this.fixtures.Where(
+                f => f.Date < endDate && f.Date > startDate)
+                .ToList();
+        }
     }
 }

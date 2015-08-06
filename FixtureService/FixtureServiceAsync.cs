@@ -28,5 +28,11 @@ namespace FixtureService
         {
             return await Task.Run(() => fixtureService.AddFixture(fixture));
         }
+
+
+        public async Task<List<Model.Fixture>> GetFixtureByDateAsync(DateTime startDate, DateTime endDate)
+        {
+            return await Task.Run(() => fixtureService.GetFixtureByDate(startDate, endDate));
+        }
     }
 }
