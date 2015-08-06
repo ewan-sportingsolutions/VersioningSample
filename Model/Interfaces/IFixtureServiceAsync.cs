@@ -17,5 +17,12 @@ namespace Model.Interfaces
 
         Task<Fixture> AddFixtureAsync(
             Fixture fixture);
+
+        /// <summary>
+        /// get fixtures between the start and end date
+        /// </summary>
+        Task<List<Fixture>> GetFixtureByDateAsync(
+            DateTime startDate, 
+            DateTime endDate);
     }
 }
