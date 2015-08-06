@@ -49,6 +49,21 @@ namespace WebHost.Controllers
             return this.fixtureService.AddFixture(fixture);
         }
 
+        [HttpGet]
+        [HttpPost]
+        public List<Fixture> GetFixtureByDate(DateTime startDate, DateTime endDate)
+        {
+            //todo::check the auth key!
+            //log the version number
+            logger.Info(
+                "received message from version : " + GetVersion() +
+                " from authKey " + GetAuthKey() +
+                " GetFixtureByDate : " + startDate.ToShortDateString() + " - " + endDate.ToShortDateString());
+
+            var result = this.fixtureService.GetFixtureByDate(startDate, endDate);
+            return result;
+        }
+
         private string GetVersion()
         {
             string versionString = "not specified";

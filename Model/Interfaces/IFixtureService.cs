@@ -17,5 +17,12 @@ namespace Model.Interfaces
 
         Fixture AddFixture(
             Fixture fixture);
+
+        /// <summary>
+        /// get fixtures between the start and end date
+        /// </summary>
+        List<Fixture> GetFixtureByDate(
+            DateTime startDate,
+            DateTime endDate);
     }
 }

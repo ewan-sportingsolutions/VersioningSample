@@ -37,5 +37,14 @@ namespace FixtureServiceRestSharp
                 .GetAwaiter()
                 .GetResult();
         }
+
+
+        public List<Model.Fixture> GetFixtureByDate(DateTime startDate, DateTime endDate)
+        {
+            return this.restServiceAsync.GetFixtureByDateAsync(startDate, endDate)
+                .ConfigureAwait(false)
+                .GetAwaiter()
+                .GetResult();
+        }
     }
 }
