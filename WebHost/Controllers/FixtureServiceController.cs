@@ -60,7 +60,8 @@ namespace WebHost.Controllers
                 " from authKey " + GetAuthKey() +
                 " GetFixtureByDate : " + startDate.ToShortDateString() + " - " + endDate.ToShortDateString());
 
-            return this.fixtureService.GetFixtureByDate(startDate, endDate);
+            var result = this.fixtureService.GetFixtureByDate(startDate, endDate);
+            return result;
         }
 
         private string GetVersion()

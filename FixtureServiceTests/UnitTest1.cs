@@ -2,13 +2,13 @@
 using System.Configuration;
 using System.Threading.Tasks;
 using FixtureServiceRestSharp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.Interfaces;
+using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace FixtureServiceTests
 {
-    [TestClass]
     public class UnitTest1
     {
         /// <summary>
@@ -16,7 +16,7 @@ namespace FixtureServiceTests
         /// runs against the WebHost specifed in AppSettings
         /// todo:: use dependency injection (from file config) rather than these test methods
         /// </summary>
-        [TestMethod]
+        [Test]
         public void RestServiceTest()
         {
             Uri serviceEndPoint = new Uri(ConfigurationManager.AppSettings["serviceEndPoint"]);
@@ -34,7 +34,7 @@ namespace FixtureServiceTests
         /// unit test, runs against the business logic
         /// todo:: use dependency injection (from file config) rather than these test methods
         /// </summary>
-        [TestMethod]
+        [Test]
         public void BusinessLogicServiceTest()
         {
             IFixtureService fixtureService = new FixtureService.FixtureService();
@@ -49,7 +49,7 @@ namespace FixtureServiceTests
         /// runs against the WebHost specifed in AppSettings
         /// todo:: use dependency injection (from file config) rather than these test methods
         /// </summary>
-        [TestMethod]
+        [Test]
         public void RestServiceByDateTest()
         {
             Uri serviceEndPoint = new Uri(ConfigurationManager.AppSettings["serviceEndPoint"]);
@@ -67,7 +67,7 @@ namespace FixtureServiceTests
         /// unit test, runs against the business logic
         /// todo:: use dependency injection (from file config) rather than these test methods
         /// </summary>
-        [TestMethod]
+        [Test]
         public void BusinessLogicGetByDateTest()
         {
             IFixtureService fixtureService = new FixtureService.FixtureService();
